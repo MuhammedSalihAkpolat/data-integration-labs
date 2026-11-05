@@ -247,3 +247,99 @@ The dataset is publicly available and can be reused under the ECB's conditions. 
 3. **More transparency:** We would explain where the data come from, how they were collected and when they were last updated.
 
 This would make our dataset easier to understand, find and reuse.
+
+
+## Task 8 – Plan what to combine it with
+
+### 1. Second source – Zweite Datenquelle
+
+Als zweite Datenquelle verwenden wir einen Datensatz von Eurostat zur allgemeinen Inflationsentwicklung im Euroraum.
+
+**Datensatz:** HICP – Monthly data (annual rate of change)
+
+- Herausgeber: Eurostat
+- Datenformat: CSV
+- Aktualisierung: Monatlich
+- Zeitraum: 1997–2025
+- Inhalt: Jährliche Inflationsrate aller Verbraucherpreise im Euroraum
+- Lizenz: Kostenlose Wiederverwendung mit Quellenangabe gemäß den Eurostat-Wiederverwendungsbedingungen.
+
+**Link:** https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_manr/default/table?lang=en
+
+Der Datensatz passt gut zu unserer bisherigen Datenquelle, weil wir damit die Preisentwicklung von Kulturveranstaltungen mit der allgemeinen Inflation vergleichen können.
+
+*Hinweis: Dieser Eurostat-Datensatz ist inzwischen archiviert und wurde durch eine neue Datenreihe ersetzt. Für unseren historischen Untersuchungszeitraum bis Dezember 2025 kann er trotzdem verwendet werden.*
+
+### 2. Shared key – Gemeinsame Merkmale
+
+Beide Datensätze enthalten monatliche Daten für den Euroraum. Deshalb können wir sie über den Monat und das geografische Gebiet miteinander verbinden.
+
+| Merkmal | EZB-Datensatz | Eurostat-Datensatz |
+|---|---|---|
+| Datum | 2023-08-31 | 2023-08 |
+| Zeitraum | 2023Aug | 2023-08 |
+| Gebiet | U2 | EA |
+| Kennzahl | 094210 | CP00 |
+| Wert | 5,4 % | 5,2 % |
+
+Die Werte zeigen beispielhaft die Preisveränderung im August 2023. Der EZB-Wert bezieht sich auf Kinos, Theater und Konzerte, während Eurostat die allgemeine Inflation abbildet.
+
+Vor dem Zusammenführen müssen wir die Datumsformate vereinheitlichen und prüfen, ob beide Gebietskennzeichnungen dieselbe Zusammensetzung des Euroraums abbilden.
+
+### 3. Granularity – Detaillierungsgrad
+
+Beide Datensätze enthalten monatliche Werte für den Euroraum. Die zeitliche und geografische Aufteilung ist daher grundsätzlich vergleichbar.
+
+Allerdings unterscheiden sich die Datumsformate und die inhaltlichen Kategorien.
+
+Wir würden deshalb beide Datumsangaben in das Format `YYYY-MM` umwandeln und anschließend die Daten anhand des Monats und des Euroraums zusammenführen.
+
+### 4. Questions – Forschungsfragen
+
+Mit beiden Datensätzen könnten wir folgende Fragen untersuchen:
+
+1. Sind die Preise für Kinos, Theater und Konzerte stärker gestiegen als die allgemeine Inflation?
+2. In welchen Jahren war der Preisaufstieg bei Kulturveranstaltungen besonders hoch?
+3. Wie stark unterscheiden sich die Preisentwicklungen zwischen Kulturveranstaltungen und der allgemeinen Inflation?
+
+### 5. Licences – Lizenzen
+
+Beide Datenquellen stammen von europäischen Institutionen und dürfen unter bestimmten Bedingungen weiterverwendet werden.
+
+- **EZB:** Wiederverwendung unter den Bedingungen der EZB, insbesondere mit Quellenangabe.
+- **Eurostat:** Kostenlose kommerzielle und nicht-kommerzielle Wiederverwendung mit Quellenangabe.
+
+Bei einer Veröffentlichung müssen beide Quellen genannt werden. Außerdem müssen Änderungen und eigene Berechnungen kenntlich gemacht werden.
+
+Wir würden die jeweiligen Wiederverwendungsbedingungen beachten und nicht einfach eine gemeinsame Lizenz vergeben, ohne die Bedingungen der EZB zu prüfen.
+
+### 6. Next steps – Weitere Schritte
+
+Folgende Schritte sind notwendig, um beide Datensätze zusammenzuführen:
+
+1. Beide CSV-Dateien von den offiziellen Webseiten herunterladen.
+2. Die Dateien in Python mit pandas einlesen.
+3. Nicht benötigte Spalten entfernen.
+4. Die Datumsformate vereinheitlichen.
+5. Die geografischen Angaben überprüfen und angleichen.
+6. Beide Datensätze anhand des Monats zusammenführen.
+7. Fehlende Werte und doppelte Einträge überprüfen.
+8. Die fertige Tabelle speichern und auswerten.
+
+**Geplanter Ablauf:**
+
+```mermaid
+flowchart TD
+    A[EZB CSV herunterladen] --> C[Daten einlesen]
+    B[Eurostat CSV herunterladen] --> C
+    C --> D[Spalten auswählen]
+    D --> E[Datumsformate vereinheitlichen]
+    E --> F[Gebietskennzeichnungen prüfen]
+    F --> G[Datensätze zusammenführen]
+    G --> H[Fehlende Werte prüfen]
+    H --> I[Fertige Tabelle auswerten]
+```
+
+### 7. Verdict – Fazit
+
+Ich würde den Datensatz für unser Projekt verwenden, da er eine gute Grundlage für die Untersuchung der Preisentwicklung von Kulturveranstaltungen bietet. Das größte Risiko besteht darin, dass die Daten keine tatsächlichen Konzertticketpreise zeigen, sondern allgemeine Preisveränderungen für Kinos, Theater und Konzerte zusammenfassen. Durch die Kombination mit der allgemeinen Inflationsrate können wir trotzdem interessante Unterschiede untersuchen.
