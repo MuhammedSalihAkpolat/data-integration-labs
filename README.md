@@ -215,3 +215,35 @@ The dataset largely fulfils the FAIR principles. Its main strengths are its publ
 Some limitations remain regarding the documentation and the conditions for reuse. These aspects should be considered when using the dataset in other projects.
 
 Overall, the dataset is suitable for further statistical analysis and for examining price developments in the cultural and entertainment sector.
+
+
+## Task 7 – Review the dataset with the FAIR principles
+
+The dataset was checked using the FAIR principles. The following table shows the results.
+
+| Principle | Rating | Explanation |
+|---|:---:|---|
+| F1 | ✓ | The dataset has a unique series ID and a stable URL on the ECB website. |
+| F2 | ~ | Important information such as title, publisher and description is available, but some metadata is missing. |
+| F4 | ✓ | The dataset can easily be found through the ECB Data Portal. |
+| A1 | ✓ | The data can be downloaded via HTTPS or the ECB API without logging in. |
+| I1 | ✓ | The dataset is available as a CSV file and can be opened with Excel or LibreOffice. |
+| I2, I3 | ✓ | Standard codes and date formats are used. The ECB also provides links to further documentation. |
+| R1 | ~ | There is some documentation, but a more detailed explanation of all columns would be helpful. |
+| R1.1 | ~ | The reuse conditions are available, but the licence information is not directly included in the CSV metadata. |
+| R1.2 | ✓ | The ECB and Eurostat are named as data providers, so the origin of the data is traceable. |
+| R1.3 | ✓ | The dataset uses the SDMX standard, which is commonly used for statistical data. |
+
+### Overall assessment
+
+Overall, the dataset fulfils most of the FAIR principles. It is easy to find, download and process. Some information about the data and its reuse conditions could be explained more clearly.
+
+The dataset is publicly available and can be reused under the ECB's conditions. However, this does not automatically mean that it is fully open according to the Open Definition.
+
+### Three things we would improve for our own dataset in Milestone 2
+
+1. **Better documentation:** We would describe all columns, including their meaning, data type and units.
+2. **Clear licence:** We would use a clearly stated open licence, for example CC BY 4.0.
+3. **More transparency:** We would explain where the data come from, how they were collected and when they were last updated.
+
+This would make our dataset easier to understand, find and reuse.
